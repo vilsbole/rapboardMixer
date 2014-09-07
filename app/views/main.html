@@ -1,17 +1,26 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
 
-<div class="row marketing">
-  <h4> Tracks </h4>
-  <div ng-controller="TracksCtrl">
-    <ul>
-      <li ng-repeat="track in tracks">{{track.artist}}</li>
-    </ul>
+<div ng-controller="TracksCtrl">
+  <div>
+    <h4>Playlist</h4>
+    <div class="jumbotron " ui-on-Drop="onDrop($event, $data, playlist)">
+      Drop here
+    </div>
+    <ul >
+      <li ng-repeat="track in playlist">
+        {{track.artist}}
+      </li>
+  </div>
+  <div class="row marketing">
+    <div ng-controller="TracksCtrl">
+      <h4>Tracks</h4>
+      <ul>
+        <li ng-repeat="track in tracks" ui-draggable="true" drag="track">
+          <audio controls>
+            <source ng-src="{{track.track | trusted}}" type="audio/ogg" preload="none">
+          </audio>
+          <span>{{track.artist}}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

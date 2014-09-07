@@ -8,16 +8,16 @@
  * Service in the rapboardMixerApp.
  */
 angular.module('rapboardMixerApp')
-  .factory('Tracks', function Tracks($http) {
+  .factory('Tracks', function Tracks($q, $http) {
 
     var obj = {};
 
-
     obj.all = function(){
-      return
-        $http.get('data.json').success(function(data) {
-          return data.content;
-        });
+      var deferred = $q.defer();
+      $http.get('data.json').success(function(data) {
+        deferred.resolve(data.content)
+      });
+      return deferred.promise;
     }
 
     return obj

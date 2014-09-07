@@ -8,9 +8,14 @@
  * Controller of the rapboardMixerApp
  */
 angular.module('rapboardMixerApp')
-  .controller('TracksCtrl', function ($scope, Tracks) {
+  .controller('TracksCtrl', function($scope, Tracks) {
     Tracks.all().then(function(res){
-      console.log(res)
-      $scope.tracks = res.content;
+      $scope.tracks = res;
     })
-  });
+    $scope.playlist = [];
+
+    $scope.onDrop = function($event,$data,array){
+      array.push($data);
+    };
+
+});
