@@ -1,4 +1,4 @@
-{
+{"content":[
 	{"artist":"2 chainz","track":"http://www.therapboard.com/audio/2chainz_4.ogg"},
 	{"artist":"2 chainz","track":"http://www.therapboard.com/audio/2chainz_yeah2.ogg"},
 	{"artist":"2pac","track":"http://www.therapboard.com/audio/2pac_4.ogg"},
@@ -216,5 +216,5 @@
 	{"artist":"Wiz Khalifa","track":"http://www.therapboard.com/audio/wiz_unh.ogg"},
 	{"artist":"Young Jeezy","track":"http://www.therapboard.com/audio/jeezy_10.ogg"},
 	{"artist":"Young Jeezy","track":"http://www.therapboard.com/audio/jeezy_11.ogg"},
-	{"artist":"Young Jeezy","track":"http://www.therapboard.com/audio/jeezy_1.ogg"},
-}
+	{"artist":"Young Jeezy","track":"http://www.therapboard.com/audio/jeezy_1.ogg"}
+]}
