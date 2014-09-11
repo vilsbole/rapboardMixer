@@ -15,7 +15,7 @@ angular.module('rapboardMixerApp')
     obj.all = function(){
       var deferred = $q.defer();
       $http.get('data.json').success(function(data) {
-        deferred.resolve(data.content)
+        deferred.resolve(data.contents);
       });
       return deferred.promise;
     }

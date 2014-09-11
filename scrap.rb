@@ -23,11 +23,22 @@ end
 
 
 # Write to data.json
-File.open("data.json", 'w'){ |file|
+File.open("app/srcs/data.json", 'w'){ |file|
   file.write("{\n")
   data.each do |elem|
     file.write("\t#{elem.to_json},\n")
   end
   file.write("}\n")
 }
+
+# # Download audio files
+# file = File.read 'app/data.json'
+# data = JSON.parse(file)
+# agent = Mechanize.new
+# agent.pluggable_parser.default = Mechanize::Download
+
+# data['content'].each do |a|
+#   path = a['track']
+#   agent.get(path).save("srcs#{path}")
+# end
 

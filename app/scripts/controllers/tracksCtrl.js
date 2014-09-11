@@ -13,9 +13,16 @@ angular.module('rapboardMixerApp')
       $scope.tracks = res;
     })
     $scope.playlist = [];
+    $scope.tracklist = [];
 
-    $scope.onDrop = function($event,$data,array){
+    $scope.onDrop = function($event, $data, array){
+      var player = new Gapless5("gapless-player");
+      player.mapKeys({cue: "7", stop: "8", next: "9"});
+      $scope.tracklist.forEach(function(path){
+        player.addTrack(path);
+      })
+
       array.push($data);
+      $scope.tracklist.push("srcs/" + $data.track);
     };
-
 });
