@@ -21,8 +21,8 @@ angular.module('rapboardMixerApp')
       $scope.tracklist.forEach(function(path){
         player.addTrack(path);
       })
-
       array.push($data);
+      console.log($data);
       $scope.tracklist.push("srcs/" + $data.track);
     };
 });

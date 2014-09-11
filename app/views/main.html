@@ -1,26 +1,21 @@
-
-<div ng-controller="TracksCtrl">
-  <div>
-    <h4>Playlist</h4>
-    <div class="jumbotron " ui-on-Drop="onDrop($event, $data, playlist)">
-      Drop here
-    </div>
-    <ul >
-      <li ng-repeat="track in playlist">
-        {{track.artist}}
-      </li>
-  </div>
-  <div class="row marketing">
-    <div ng-controller="TracksCtrl">
-      <h4>Tracks</h4>
-      <ul>
-        <li ng-repeat="track in tracks" ui-draggable="true" drag="track">
-          <audio controls>
-            <source ng-src="{{track.track | trusted}}" type="audio/ogg" preload="none">
-          </audio>
-          <span>{{track.artist}}</span>
+<div class="rows" ng-controller="TracksCtrl">
+  <div class="col-md-4">
+    <div id="gapless-player" />
+    <div class="jumbotron" ui-on-Drop="onDrop($event, $data, playlist)">
+      <h3>Drop here</h3>
+      <ul class="list-group" >
+        <li class="list-group-item" ng-repeat="track in playlist">
+          {{track.artist}}
         </li>
       </ul>
+
     </div>
+  </div>
+  <div class="col-md-8">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="track in tracks" ui-draggable="true" drag="track" >
+        {{track.artist}}
+      </li>
+    </ul>
   </div>
 </div>
