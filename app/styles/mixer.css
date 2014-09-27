@@ -1,0 +1,59 @@
+body {
+  background-color: #ff9800;
+  font-family: Arial, Helvetica;
+}
+
+.player {
+  min-width: 300px;
+  background-color: red;
+}
+
+.rapboard-logo {
+  margin-top: 30px;
+  padding: 10px;
+  text-align: center;
+  color: #f4f1de;
+  border-width: 5px 0px;
+  border-style: solid;
+  border-color: #f4f1de;
+
+}
+
+.logo {
+  font-size: 2em;
+}
+
+.tracklist {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 300px;
+  background-color: #f4f1de;
+}
+
+
+.artist-list {
+  list-style-type: none;
+
+}
+
+.artist-list > li {
+  display: block;
+  height: 144px;
+  width: 137px;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+
+.artist-playlist {
+  list-style-type: none;
+
+}
+
+.artist-playlist > li {
+  display: block;
+  height: 94px;
+  width: 87px;
+  position: relative;
+  float: left;
+}

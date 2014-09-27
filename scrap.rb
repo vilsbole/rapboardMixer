@@ -17,8 +17,9 @@ page = mechanize.get("#{file_path}")
 data = []
 page.search('audio').each do |audio|
   artist = audio['title']
+  artists_class = audio['class']
   src = audio.at('source')['src']
-  data << {artist: artist, track: source_url + '/' + src }
+  data << {css_class: artists_class, artist: artist, track: source_url + '/' + src }
 end
 
 

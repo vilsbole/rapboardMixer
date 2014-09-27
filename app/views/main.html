@@ -1,21 +1,28 @@
-<div class="rows" ng-controller="TracksCtrl">
-  <div class="col-md-4">
-    <div id="gapless-player" />
-    <div class="jumbotron" ui-on-Drop="onDrop($event, $data, playlist)">
-      <h3>Drop here</h3>
-      <ul class="list-group" >
-        <li class="list-group-item" ng-repeat="track in playlist">
-          {{track.artist}}
+
+<div class="rapboard-logo">
+  <span class="logo">THE RAPBOARD MIXER</span>
+</div>
+
+<div class="container" ng-controller="TracksCtrl">
+  <div class="rows">
+    <div class="col-md-12">
+      <div class="tracklist" ui-on-Drop="addToPlaylist($event, $data, playlist)">
+        <h3>Drop here</h3>
+        <div class="pull-left">
+          <ul class="artist-playlist" ui-on-Drop="reorderPlaylist($event, $data, playlist)">
+            <li class="artists-{{track.css_class}}" ng-repeat="track in playlist" ui-draggable="true" drag="track"></li>
+          </ul>
+        </div>
+        <div class="pull-right" id="gapless-player" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <ul class="artist-list">
+        <li class="artists-{{track.css_class}}" ng-repeat="track in tracks" ui-draggable="true" drag="track" >
+          <div class="tooltip">{{track.artist}}</div>
         </li>
       </ul>
-
     </div>
   </div>
-  <div class="col-md-8">
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="track in tracks" ui-draggable="true" drag="track" >
-        {{track.artist}}
-      </li>
-    </ul>
-  </div>
 </div>
+
