@@ -8,9 +8,11 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/mixer.css">
     <link rel="stylesheet" href="styles/gapless5.override.css">
@@ -24,8 +26,22 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+
+    <!-- Facebook buttons -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="container">
       <div class="header">
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/"
+        data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
       </div>
 
       <div ng-view=""></div>
@@ -88,12 +104,14 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
         <script src="scripts/app.js"></script>
         <script src="scripts/vendor/Gapless-5/gapless5.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/services/tracksService.js"></script>
         <script src="scripts/controllers/tracksCtrl.js"></script>
+        <script src="scripts/directives/deleteDir.js"></script>
         <!-- endbuild -->
 </body>
 </html>

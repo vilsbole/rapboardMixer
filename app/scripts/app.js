@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'ngDragDrop'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $sceDelegateProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -31,6 +31,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
   })
   .filter('trusted', ['$sce', function ($sce) {
     return function(url) {

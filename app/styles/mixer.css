@@ -57,3 +57,32 @@ body {
   position: relative;
   float: left;
 }
+/*
+** Hide untill hover
+**/
+.hidden {
+  z-index: 9999;
+  display: none;
+}
+
+.parent:hover .hidden {
+  display: block;
+}
+/*
+** Add Padding to search
+**/
+
+.search {
+  width: 300px;
+}
+/*
+** Stick to top on scroll
+**/
+.sticky {
+    position: fixed;
+    width: 80%;
+    left: 10%;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+}

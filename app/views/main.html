@@ -2,27 +2,71 @@
 <div class="rapboard-logo">
   <span class="logo">THE RAPBOARD MIXER</span>
 </div>
-
-<div class="container" ng-controller="TracksCtrl">
-  <div class="rows">
-    <div class="col-md-12">
-      <div class="tracklist" ui-on-Drop="addToPlaylist($event, $data, playlist)">
-        <h3>Drop here</h3>
-        <div class="pull-left">
-          <ul class="artist-playlist" ui-on-Drop="reorderPlaylist($event, $data, playlist)">
-            <li class="artists-{{track.css_class}}" ng-repeat="track in playlist" ui-draggable="true" drag="track"></li>
-          </ul>
+<div class="rows" ng-controller="TracksCtrl">
+  <div class="col-md-12">
+    <div class="tracklist"
+      ui-on-Drop="addToPlaylist($event, $data, playlist)">
+      <h3 ng-hide="empty == 0">Drop here</h3>
+      <div class="pull-left">
+        <ul class="artist-playlist"
+          ui-on-Drop="reorderPlaylist($event, $data, playlist)">
+          <li class="artists-{{track.css_class}} parent"
+            ng-repeat="track in playlist"
+            ui-draggable="true"
+            drag="track">
+            <div class="hidden">
+              <span ng-click="deleteEntry(entry)">
+                <a class="btn btn-danger" href="#">Delete</a>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="pull-right">
+        <div id="gapless-player" />
+        <div class="input-group input-group-lg search">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+          <input type="text" class="form-control" ng-model="search.artist"
+          placeholder="Find your favorite artist"/>
         </div>
-        <div class="pull-right" id="gapless-player" />
+        <button class="btn btn-danger" ng-click="clearPlaylist()">Reset</button>
       </div>
     </div>
-    <div class="col-md-12">
-      <ul class="artist-list">
-        <li class="artists-{{track.css_class}}" ng-repeat="track in tracks" ui-draggable="true" drag="track" >
-          <div class="tooltip">{{track.artist}}</div>
-        </li>
-      </ul>
-    </div>
+  </div>
+  <div class="col-md-12">
+    <ul class="artist-list">
+      <li class="artists-{{track.css_class}}" ng-click="playSingle($index)"
+        ng-repeat="track in artists track by $index | filter:search"
+        ui-draggable="true"
+        drag="track" >
+        <audio id="{{$index}}" >
+          <source src="{{track.track | trusted}}">
+        </audio>
+        <div class="tooltip">{{track.artist}}</div>
+      </li>
+
+    </ul>
   </div>
 </div>
 
+<script>
+$(document).ready(function() {
+  var stickyNavTop = $('.tracklist').offset().top;
+
+  var stickyNav = function(){
+    var scrollTop = $(window).scrollTop();
+
+    if (scrollTop > stickyNavTop) {
+        $('.tracklist').addClass('sticky');
+    } else {
+        $('.tracklist').removeClass('sticky');
+    }
+  };
+
+  stickyNav();
+
+  $(window).scroll(function() {
+      stickyNav();
+  });
+});
+</script>
