@@ -37,7 +37,13 @@ angular.module('rapboardMixerApp')
     };
 
     $scope.reorderPlaylist = function($event, $data, array){
-      console.log(playlist);
+      console.log($scope.playlist);
+    }
+
+    $scope.clearPlaylist = function(){
+      player.removeAllTracks();
+      $scope.playlist.length = 0;
+
     }
 
 });
